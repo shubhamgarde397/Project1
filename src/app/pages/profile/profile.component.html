@@ -1,0 +1,76 @@
+<div class="well">
+    <form [formGroup]="myFormGroup" (ngSubmit)="upload(myFormGroup)" enctype="multipart/form-data">
+
+        <!--File-->
+        <div class="form-group row" *ngIf="fullData.role==='Admin'">
+
+            <div class="col-xs-3">
+                <input type="file" (change)="setSelectedFile($event)" class="form-control" formControlName="myImage">
+            </div>
+            <div class="col-xs-2">
+                <div [hidden]="myFormGroup.controls.myImage.valid">
+                    <font color="red">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </font>
+                </div>
+            </div>
+        </div>
+        <!--File-->
+
+        <!--Name-->
+        <div class="form-group row">
+
+            <div class="col-xs-3">
+                <input type="text" id="username" class="form-control" formControlName="username" placeholder="UserName">
+            </div>
+            <div class="col-xs-2">
+                <div [hidden]="myFormGroup.controls.username.valid">
+                    <font color="red">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </font>
+                </div>
+            </div>
+        </div>
+        <!--Name-->
+
+        <!--Password-->
+        <div class="form-group row">
+
+            <div class="col-xs-3">
+                <input type="password" id="password" class="form-control" formControlName="password"
+                    placeholder="Password">
+            </div>
+            <div class="col-xs-2">
+                <div [hidden]="myFormGroup.controls.password.valid">
+                    <font color="red">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </font>
+                </div>
+            </div>
+        </div>
+        <!--Password-->
+
+        <!--Role-->
+        <div class="form-group row">
+
+            <div class="col-xs-3">
+                <select id="role" class="form-control" formControlName="role">
+                    <option>Admin</option>
+                    <option>Guest</option>
+                </select>
+            </div>
+            <div class="col-xs-2">
+                <div [hidden]="myFormGroup.controls.role.valid">
+                    <font color="red">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </font>
+                </div>
+            </div>
+        </div>
+        <!--Role-->
+        Created : {{fullData.createdAt}}
+        Updated : {{fullData.updatedAt}}
+
+        <button type="submit">Submit</button>
+    </form>
+</div>
